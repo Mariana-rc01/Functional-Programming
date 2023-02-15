@@ -1,0 +1,132 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1" /><title>Tarefa1_2022li1g007</title><link href="linuwial.css" rel="stylesheet" type="text/css" title="Linuwial" /><link rel="stylesheet" type="text/css" href="quick-jump.css" /><link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700" /><script src="haddock-bundle.min.js" async="async" type="text/javascript"></script><script type="text/x-mathjax-config">MathJax.Hub.Config({ tex2jax: { processClass: "mathjax", ignoreClass: ".*" } });</script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script></head><body><div id="package-header"><span class="caption empty">&nbsp;</span><ul class="links" id="page-menu"><li><a href="index.html">Contents</a></li><li><a href="doc-index.html">Index</a></li></ul></div><div id="content"><div id="module-header"><table class="info"><tr><th valign="top">Copyright</th><td>Mariana Rocha Cristino &lt;a90817@alunos.uminho.pt&gt;<br />Ana Carolina Penha Cerqueira &lt;a104188@alunos.uminho.pt&gt;</td></tr><tr><th>Safe Haskell</th><td>Safe-Inferred</td></tr></table><p class="caption">Tarefa1_2022li1g007</p></div><div id="description"><p class="caption">Description</p><div class="doc"><p>M&#243;dulo para a realiza&#231;&#227;o da Tarefa 1 do projeto de LI1 em 2022/23.</p></div></div><div id="synopsis"><details id="syn"><summary>Synopsis</summary><ul class="details-toggle" data-details-id="syn"><li class="src short"><a href="#v:mapaValido">mapaValido</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaObst">validaObst</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaRios">validaRios</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaComp">validaComp</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaComp1">validaComp1</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaComp2">validaComp2</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaCaminho">validaCaminho</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaTamanho">validaTamanho</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaSeq">validaSeq</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li><li class="src short"><a href="#v:validaArvores">validaArvores</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool</li></ul></details></div><div id="interface"><h1>Documentation</h1><div class="top"><p class="src"><a id="v:mapaValido" class="def">mapaValido</a> <a href="#v:mapaValido" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa</p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso o mapa cumpra todos os requesitos impostos pelas fun&#231;&#245;es, caso contr&#225;rio False </p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:mapaValido" title="Tarefa1_2022li1g007">mapaValido</a></code> recebe um mapa e verifica se este cumpre todas as restri&#231;&#245;es realizadas 
+nas fun&#231;&#245;es de restri&#231;&#227;o que constituem a fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:mapaValido" title="Tarefa1_2022li1g007">mapaValido</a></code>.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>mapaValido :: Mapa -&gt; Bool
+mapaValido (Mapa _ []) = False
+mapaValido mapa = validaObst mapa &amp;&amp; validaRios mapa &amp;&amp; validaComp mapa &amp;&amp; validaCaminho mapa &amp;&amp; validaTamanho mapa &amp;&amp; validaSeq mapa 
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>mapaValido (Mapa 5 [(Relva, [Arvore, Nenhum, Arvore, Nenhum, Arvore]),(Estrada (-1), [Nenhum, Nenhum, Nenhum, Carro, Carro]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>mapaValido (Mapa 5 [(Relva, [Arvore, Nenhum, Arvore, Nenhum, Arvore]),(Estrada (-1), [Nenhum, Carro, Carro, Carro, Carro]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaObst" class="def">validaObst</a> <a href="#v:validaObst" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa</p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso o mapa n&#227;o contenha objetos em terrenos impr&#243;prios, caso contr&#225;rio False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaObst" title="Tarefa1_2022li1g007">validaObst</a></code> recebe um mapa e verifica se este n&#227;o cont&#233;m objetos em terrenos impr&#243;prios.
+Assim, um mapa que contenha um <strong>Tronco</strong> ou uma <strong>Arvore</strong> no terreno <strong>Estrada</strong>, por exemplo, &#233; um mapa inv&#225;lido e assim a fun&#231;&#227;o devolve <strong>False</strong>.
+O mesmo acontece para o terreno <strong>Rio</strong> caso contenha <strong>Arvore</strong> ou <strong>Carro</strong> e para o terreno <strong>Relva</strong> caso tenha <strong>Tronco</strong> ou <strong>Carro</strong>.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaObst :: Mapa -&gt; Bool 
+validaObst (Mapa _ []) = True
+validaObst (Mapa l ((Relva,lT):t))      = if elem Tronco lT || elem Carro lT  then False else validaObst (Mapa l t)
+validaObst (Mapa l ((Estrada _,lT):t))  = if elem Tronco lT || elem Arvore lT then False else validaObst (Mapa l t)
+validaObst (Mapa l ((Rio _,lT):t))      = if elem Arvore lT || elem Carro lT  then False else validaObst (Mapa l t)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaObst (Mapa 5 [(Relva, [Arvore, Nenhum, Arvore, Nenhum, Arvore]),(Estrada (-1), [Nenhum, Nenhum, Nenhum, Carro, Carro]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>True
+<code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaObst (Mapa 5 [(Relva, [Arvore, Nenhum, Carro, Nenhum, Arvore]),(Estrada (-1), [Nenhum, Nenhum, Nenhum, Carro, Carro]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaRios" class="def">validaRios</a> <a href="#v:validaRios" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa</p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso as velocidades de dois rios tenham sinais opostos, caso contr&#225;rio, False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaRios" title="Tarefa1_2022li1g007">validaRios</a></code> recebe um mapa e verifica se rios cont&#237;guos t&#234;m dire&#231;&#245;es opostas.
+Para isso, ela assume as velocidades de <strong>dois Rios</strong> que ocorrem <strong>consecutivamente</strong> e averigua se estes tem velocidades com <strong>sinais</strong> <strong>opostos</strong>.
+Caso tal n&#227;o aconte&#231;a, o mapa &#233; inv&#225;lido e a fun&#231;&#227;o retorna False.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaRios :: Mapa -&gt; Bool
+validaRios (Mapa _ []) = True
+validaRios (Mapa _ [(Rio _,_)]) = True
+validaRios (Mapa l ((Rio v1,lT1):(Rio v2,lT2):t))
+   |v1 * v2 &lt; 0 = validaRios (Mapa l ((Rio v2,lT2):t))
+   |otherwise = False
+validaRios (Mapa l ((Rio v, lT):h1:t)) = case h1 of (Estrada _,_) -&gt; validaRios (Mapa l t)
+                                                    (Relva, _)    -&gt; validaRios (Mapa l t)
+validaRios (Mapa l ((e,_):t)) = case e of Estrada _ -&gt; validaRios (Mapa l t)
+                                          Relva     -&gt; validaRios (Mapa l t)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaRios (Mapa 5 [(Relva, [Arvore, Nenhum, Arvore, Nenhum, Arvore]),(Estrada (-1), [Nenhum, Nenhum, Nenhum, Carro, Carro]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaRios (Mapa 2 [(Rio 1,[Tronco, Nenhum]),(Rio (-1),[Nenhum, Tronco]),(Rio 1,[Tronco, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaRios (Mapa 2 [(Rio 1,[Tronco, Nenhum]),(Rio 2,[Nenhum, Tronco]),(Rio 1,[Tronco, Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaComp" class="def">validaComp</a> <a href="#v:validaComp" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa</p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso n&#227;o haja carros com comprimento superior a 3 e troncos com comprimento superior a 5, caso contr&#225;rio False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaComp" title="Tarefa1_2022li1g007">validaComp</a></code> recebe um mapa e verifica se os Troncos t&#234;m no <strong>m&#225;ximo</strong> <strong>5</strong> <strong>unidades</strong> de comprimento e os <strong>Carros</strong> no <strong>m&#225;ximo</strong> <strong>3</strong> unidades.
+Assim, ela verifica se estes elementos n&#227;o ocorrem consecutivamente na lista mais vezes do que aquelas que lhes s&#227;o permitidas, com o aux&#237;lio das fun&#231;&#245;es <code><a href="Tarefa1_2022li1g007.html#v:validaComp1" title="Tarefa1_2022li1g007">validaComp1</a></code> e <code><a href="Tarefa1_2022li1g007.html#v:validaComp2" title="Tarefa1_2022li1g007">validaComp2</a></code>.
+No caso do Carro, caso ocorra [Carro, Carro, Carro, Carro, Nenhum] a fun&#231;&#227;o devolver&#225; False j&#225; que este ocorre mais do que tr&#234;s vezes consecutivas na lista ultrapassando o tamanho permitido.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaComp :: Mapa -&gt; Bool
+validaComp (Mapa _ [])             = True
+validaComp (Mapa l ((_,[]):t))     = validaComp (Mapa l t)
+validaComp (Mapa l ((Relva,_):t))  = validaComp (Mapa l t)
+validaComp mapa@(Mapa l ((e,lT):t)) = if head lT /= last lT then validaComp1 mapa else validaComp2 mapa
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp (Mapa 5 [(Relva, [Arvore, Nenhum, Arvore, Nenhum, Arvore]),(Rio 1, [Nenhum, Tronco, Tronco, Nenhum, Tronco]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp (Mapa 6 [(Rio 1, [Tronco, Tronco, Tronco, Tronco, Tronco, Tronco]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum, Nenhum])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp (Mapa 6 [(Rio 1, [Tronco, Nenhum, Nenhum, Tronco, Nenhum, Tronco]),(Estrada 1, [Carro, Carro, Carro, Carro, Nenhum, Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaComp1" class="def">validaComp1</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validaComp1" class="selflink">#</a></p><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaComp1" title="Tarefa1_2022li1g007">validaComp1</a></code> recebe um mapa e verifica se na lista de obst&#225;culos &#233; respeitada a restri&#231;&#227;o
+da fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaComp" title="Tarefa1_2022li1g007">validaComp</a></code>, quando o primeiro elemento &#233; diferente do &#250;ltimo, ou seja, n&#227;o s&#227;o verificados os casos 
+em que o <strong>Carro</strong> ou o <strong>Tronco</strong> est&#227;o &quot;divididos&quot; (por exemplo [Carro,Nenhum,Carro]).</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaComp1 :: Mapa -&gt; Bool
+validaComp1 (Mapa _ []) = True
+validaComp1 (Mapa l ((_,[]):t)) = validaComp (Mapa l t)
+validaComp1 (Mapa l ((e,lT):t)) |all (== Carro)  (take 4 lT) &amp;&amp; length lT &gt; 3 = False
+                                |all (== Tronco) (take 6 lT) &amp;&amp; length lT &gt; 5 = False 
+                                |otherwise = validaComp1 (Mapa l ((e, tail lT):t))
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp1 (Mapa 4 [(Relva, [Nenhum, Arvore, Nenhum, Arvore]),(Rio 1, [Nenhum, Tronco, Tronco, Tronco]),(Rio (-2), [Tronco, Nenhum, Tronco, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp1 (Mapa 5 [(Rio 1, [Tronco, Tronco, Tronco, Tronco, Tronco, Tronco]),(Rio (-2), [Tronco, Nenhum, Nenhum, Tronco, Nenhum])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp1 (Mapa 6 [(Rio 1, [Tronco, Nenhum, Nenhum, Tronco, Nenhum, Tronco]),(Estrada 1, [Carro, Carro, Carro, Carro, Nenhum, Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaComp2" class="def">validaComp2</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validaComp2" class="selflink">#</a></p><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaComp2" title="Tarefa1_2022li1g007">validaComp2</a></code> recebe um mapa e verifica se na lista de obst&#225;culos &#233; respeitada a restri&#231;&#227;o
+da fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaComp" title="Tarefa1_2022li1g007">validaComp</a></code>, nos casos em que o <strong>Carro</strong> e o <strong>Tronco</strong> est&#227;o &quot;divididos&quot;, por exemplo, [Carro,Nenhum,Carro] ou 
+[Tronco,Tronco,Nenhum,Tronco].</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaComp2 :: Mapa -&gt; Bool
+validaComp2 (Mapa _ []) = True
+validaComp2 (Mapa l ((_,[]):t)) = validaComp (Mapa l t)
+validaComp2 mapa@(Mapa x ((e,l):t)) | head l == Carro  = if all (== Carro) l  || nElementos &gt; 3 then False else validaComp1 mapa
+                                    | head l == Tronco = if all (== Tronco) l || nElementos &gt; 5 then False else validaComp1 mapa
+                                    | otherwise        = validaComp1 mapa
+                                    where nElementos = length hl + length (last tl)
+                                          (hl:tl)    = group l
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp2 (Mapa 4 [(Rio 1, [Tronco, Tronco, Nenhum, Tronco]),(Carro (-2), [Carro, Nenhum, Carro, Carro])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp2 (Mapa 7 [(Rio 1, [Tronco, Tronco, Tronco, Nenhum, Tronco, Tronco, Tronco])])
+</code></strong>False
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaComp2 (Mapa 5 [(Rio 1, [Tronco, Nenhum, Tronco, Nenhum, Tronco]),(Estrada 1, [Carro, Carro, Nenhum, Nenhum, Carro])])
+</code></strong>True
+</pre></div></div><div class="top"><p class="src"><a id="v:validaCaminho" class="def">validaCaminho</a> <a href="#v:validaCaminho" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa </p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso haja <a href="Nenhum.html">Nenhum</a>, caso contr&#225;rio False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaCaminho" title="Tarefa1_2022li1g007">validaCaminho</a></code> recebe um mapa e verifica se em cada par <strong>(Terreno,[Obst&#225;culo])</strong> existe a aus&#234;ncia
+de pelo menos um obst&#225;culo, ou seja, averigua se em cada terreno existe um &quot;obst&#225;culo&quot; <strong>Nenhum</strong>, havendo assim pelo menos um
+espa&#231;o livre. Com a exce&#231;&#227;o do <strong>Rio</strong> quando a largura do mapa &#233; superior a 1, onde t&#234;m que haver pelo menos um <strong>Tronco</strong> e um <strong>Nenhum</strong>, visto que, caso n&#227;o haja, o Jogador n&#227;o consegue continuar o jogo.
+Assim, caso exista em cada terreno um obst&#225;culo <strong>Nenhum</strong>, a fun&#231;&#227;o devolve True, caso contr&#225;rio devolve False.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaCaminho :: Mapa -&gt; Bool
+validaCaminho (Mapa _ []) = True
+validaCaminho (Mapa l ((Rio _,lT):t)) | l == 1 &amp;&amp; Nenhum <code>elem</code> lT                     = validaCaminho (Mapa l t)
+                                      | l &gt; 1  &amp;&amp; Tronco <code>elem</code> lT &amp;&amp; Nenhum <code>elem</code> lT = validaCaminho (Mapa l t)
+                                      | otherwise = False
+validaCaminho (Mapa l ((e,lT):t)) = if Nenhum <code>elem</code> lT then validaCaminho (Mapa l t) else False
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaCaminho (Mapa 3 [(Rio 2, [Nenhum, Tronco, Nenhum]),(Estrada 2, [Carro, Carro, Nenhum]),(Relva, [Nenhum, Arvore, Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaCaminho (Mapa 3 [(Rio 2, [Nenhum, Tronco, Nenhum]),(Estrada 2, [Carro, Carro, Nenhum]),(Relva, [Arvore, Arvore, Arvore])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaTamanho" class="def">validaTamanho</a> <a href="#v:validaTamanho" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa </p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso o tamanho de cada lista de obst&#225;culos de cada terreno seja igual &#224; largura do mapa, caso contr&#225;rio False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaTamanho" title="Tarefa1_2022li1g007">validaTamanho</a></code> recebe um mapa e analisa se a lista de obst&#225;culos de cada terreno tem a mesma largura
+que o mapa.
+Deste modo, caso o tamanho de uma lista de obst&#225;culos de um qualquer terreno for superior ou inferior &#224; largura 
+do mapa, a fun&#231;&#227;o retorna False, caso seja igual, retorna True.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaTamanho :: Mapa -&gt; Bool
+validaTamanho (Mapa _ []) = True
+validaTamanho (Mapa l ((e,lT):t)) = if length lT == l then validaTamanho (Mapa l t) else False
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaTamanho (Mapa 3 [(Rio 2, [Nenhum, Tronco, Nenhum]),(Estrada 2, [Carro, Carro, Nenhum]),(Relva, [Arvore, Arvore, Arvore])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaTamanho (Mapa 3 [(Rio 2, [Nenhum, Tronco, Nenhum]),(Estrada 2, [Carro, Carro, Nenhum]),(Relva, [Arvore, Arvore])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaSeq" class="def">validaSeq</a> <a href="#v:validaSeq" class="selflink">#</a></p><div class="subs arguments"><p class="caption">Arguments</p><table><tr><td class="src">:: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a></td><td class="doc"><p>argumento: um mapa </p></td></tr><tr><td class="src">-&gt; Bool</td><td class="doc"><p>resultado: True caso n&#227;o haja mais do que 4 rios ou 5 estradas ou 5 relvas seguidos, caso contr&#225;rio False</p></td></tr></table></div><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaSeq" title="Tarefa1_2022li1g007">validaSeq</a></code> recebe um mapa e analisa se este n&#227;o cont&#233;m mais do que 4 rios seguidos, nem 5 estradas 
+ou relvas seguidas.
+De forma que, se o mapa receber at&#233; <strong>4</strong> <strong>Rios</strong> ou <strong>5</strong> <strong>Estradas</strong> ou <strong>5</strong> <strong>Relvas</strong>, a fun&#231;&#227;o retorna True, 
+caso contr&#225;rio, retorna False.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaSeq :: Mapa -&gt; Bool
+validaSeq (Mapa _ []) = True
+validaSeq (Mapa l lT)
+   | all (==(<a href="Rio.html">Rio</a>)) (take 5 terrenos) &amp;&amp; length terrenos &gt; 4     = False
+   | all (==(<a href="Estrada.html">Estrada</a>)) (take 6 terrenos) &amp;&amp; length terrenos &gt; 5 = False
+   | all (==<a href="Relva.html">Relva</a>) (take 6 terrenos) &amp;&amp; length terrenos &gt; 5     = False
+   | otherwise = validaSeq (Mapa l (tail lT))
+   where vel :: Mapa -&gt; [String]
+         vel (Mapa _ []) = []
+         vel (Mapa l ((e,lT):t)) = case e of Estrada _ -&gt; <a href="Estrada.html">Estrada</a>:vel (Mapa l t)
+                                             Rio _     -&gt; <a href="Rio.html">Rio</a>    :vel (Mapa l t)
+                                             Relva     -&gt; <a href="Relva.html">Relva</a>  :vel (Mapa l t)
+         terrenos = vel (Mapa l lT)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaSeq (Mapa 2 [(Rio 2, [Nenhum,Tronco]),(Rio (-2),[Tronco,Nenhum]),(Rio 1, [Tronco,Nenhum])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaSeq (Mapa 2 [(Rio 2, [Nenhum,Tronco]),(Rio (-2),[Tronco,Nenhum]),(Rio 1, [Tronco,Nenhum]),(Rio (-1),[Nenhum,Tronco]),(Rio 1,[Tronco,Nenhum])])
+</code></strong>False
+</pre></div></div><div class="top"><p class="src"><a id="v:validaArvores" class="def">validaArvores</a> :: <a href="LI12223.html#t:Mapa" title="LI12223">Mapa</a> -&gt; Bool <a href="#v:validaArvores" class="selflink">#</a></p><div class="doc"><p>A fun&#231;&#227;o <code><a href="Tarefa1_2022li1g007.html#v:validaArvores" title="Tarefa1_2022li1g007">validaArvores</a></code> recebe um mapa e analisa se este n&#227;o arvores impossiveis.</p><p>A fun&#231;&#227;o poderia ser definida da seguinte forma:</p><pre>validaArvores :: Mapa -&gt; Bool
+validaArvores (Mapa _ []) = True
+validaArvores (Mapa l ((Relva,obst1):(Relva,obst2):t)) = elem (Nenhum,Nenhum) (zip obst1 obst2) &amp;&amp; validaArvores (Mapa l ((Relva,obst2):t))
+validaArvores (Mapa l (h:t)) = validaArvores (Mapa l t)
+</pre><h2>Exemplos de utiliza&#231;&#227;o:</h2><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaArvores (Mapa 4 [(Relva,[Arvore,Nenhum,Nenhum]),(Relva,[Nenhum,Arvore,Nenhum]),(Rio 1,[Tronco,Nenhum,Tronco])])
+</code></strong>True
+</pre><pre class="screen"><code class="prompt">&gt;&gt;&gt; </code><strong class="userinput"><code>validaArvores (Mapa 4 [(Estrada 1,[Carro,Carro,Carro,Nenhum]),(Relva,[Arvore,Nenhum,Nenhum]),(Relva,[Nenhum,Arvore,Nenhum]),(Rio 1,[Tronco,Nenhum,Tronco])])
+</code></strong>True
+</pre></div></div></div></div><div id="footer"><p>Produced by <a href="http://www.haskell.org/haddock/">Haddock</a> version 2.26.0</p></div></body></html>
