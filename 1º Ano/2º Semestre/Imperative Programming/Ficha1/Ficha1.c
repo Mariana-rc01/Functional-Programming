@@ -40,14 +40,18 @@ void xadrez (int n) {
 void circulo (int r) {
     int i, j; //posiçao que esta a ser determinada
     float dist; //distancia entre 2 pontos, o (i,j) e o raio
+    int x = 0;
     for (i = 0; (i <= 2*r); i++) {
         for (j = 0; (j <= 2*r); j++) {
            dist = sqrt((i-r)*(i-r) + (j-r)*(j-r));
            if (dist <= r) putchar ('#');
            else putchar (' ');
+
+           if (dist <= r) x++;
         }
         putchar ('\n');
     }
+    printf ("O circulo tem %d #'s.\n",x);
 }
 
 /*
