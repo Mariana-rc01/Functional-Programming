@@ -20,6 +20,19 @@ void quadrado (int n) {
     }
 }
 
+// Exercicio extra 1:
+
+void quadrado (int n) {
+    int i, j;
+    for (i = 0; (i < n); i++) {
+        for (j = 0; (j < n); j++) {
+            if (i % 2 == 0) putchar ('_');
+            else putchar ('#');
+        }
+        putchar('\n');
+    }
+}
+
 // Exercicio 2:
 
 void xadrez (int n) {

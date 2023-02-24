@@ -14,7 +14,7 @@ float multInt1 (int n, float m) {
 
 float multInt2 (int n, float m) {
     float r = 0;
-    while (n != 1) {
+    while (n >= 1) {
         if (n % 2 == 1) r += m;
         n /= 2;
         m *= 2;
@@ -27,13 +27,15 @@ float multInt2 (int n, float m) {
 float multInt2M (int n, float m) {
     float r = 0;
     int i = 0;
-    while (n != 1) {
-        if (n % 2 == 1) r += m;
+    while (n >= 1) {
+        if (n % 2 == 1) {
+            r += m;
+            i++;}
         n /= 2;
         m *= 2;
-        i++;
     }
-    return r,i;
+    printf ("%d\n", i);
+    return r;
 }
 
 // Exercicio 3:
@@ -55,11 +57,10 @@ int mdc1 (int a, int b) {
 // Exercicio 4:
 
 int mdc2 (int a, int b) {
-    while ((a != 0 && b != 0)) {
+    while ((a != 0 || b != 0)) {
         if (a > b) a -= b;
         else if (a < b) b -= a;
         else return a;
-        // quer dizer que os numeros sao iguais e o mdc (a,b) = a ou b
     }
     if (a == 0) return b;
     else return a;
@@ -69,15 +70,15 @@ int mdc2 (int a, int b) {
 
 int mdc2M (int a, int b) {
     int i = 0;
-    while ((a != 0 && b != 0)) {
+    while ((a != 0 || b != 0)) {
         if (a > b) a -= b;
         else if (a < b) b -= a;
-        else return a;
+        else {printf("%d\n", i+1);return a;}
         i++;
-        // quer dizer que os numeros sao iguais e o mdc (a,b) = a ou b
     }
-    if (a == 0) return b,i;
-    else return a,i;
+    printf("%d\n", i);
+    if (a == 0) return b;
+    else return a;
 }
 
 // Exercicio 5:
@@ -87,12 +88,12 @@ int mdc3 (int a, int b) {
     while ((a != 0 && b != 0)) {
         if (a > b) a %= b;
         else if (a < b) b %= a;
-        else return a;
+        else {printf("%d\n",i+1);return a;}
         i++;
-        // quer dizer que os numeros sao iguais e o mdc (a,b) = a ou b
     }
-    if (a == 0) return b,i;
-    else return a,i;
+    printf("%d\n",i);
+    if (a == 0) return b;  
+    else return a;
 }
 
 // Exercicio 6:
@@ -100,7 +101,7 @@ int mdc3 (int a, int b) {
 // a)
 
 int fib1 (int n) {
-    if (n == 1 || n == 2) return 1;
+    if (n < 2) return 1;
     else return fib1 (n-1) + fib1 (n-2);
 }
 
@@ -115,4 +116,10 @@ int fib2 (int n) {
         b = aux;
     }
     return a;
+}
+
+int main () {
+    int r = mdc3 (126,45);
+    printf ("%d\n",r);
+    return 0;
 }
