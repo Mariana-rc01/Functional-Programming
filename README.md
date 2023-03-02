@@ -1,3 +1,3 @@
-# LEI - UMinho
+# Programação Funcional
 
-Desenvolvimento de projetos e resolução de fichas na Licenciatura de Engenharia Informática, Universidade do Minho.
+Resolução das Fichas de Programação Funcional do ano letivo 2022/2023.
